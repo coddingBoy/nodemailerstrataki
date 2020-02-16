@@ -33,13 +33,13 @@ app.post('/addUser', (req, res) => {
     if (user) {
       res.status(400).json({
         state: 'failed',
-        msg: '该用户已存在'
+        msg: '该用户已存在',
       })
     } else {
       const newUser = new User({
         username: req.body.username,
         pwd: req.body.pwd,
-        email: req.body.email
+        email: req.body.email,
       })
 
       newUser
@@ -48,7 +48,7 @@ app.post('/addUser', (req, res) => {
           res.status(200).json({
             state: 'suc',
             msg: '添加用户成功',
-            data: user
+            data: user,
           })
         })
         .catch(err => console.log(err))
@@ -70,7 +70,7 @@ app.post('/retrievePwd', (req, res) => {
         secure: true,
         auth: {
           user: '309595700@qq.com', // 309595700@qq.com
-          pass: 'tdnkagirlywdbigc' // 123456
+          pass: 'tdnkagirlywdbigc', // 123456
         }
       })
 
@@ -79,7 +79,7 @@ app.post('/retrievePwd', (req, res) => {
         from: '309595700@qq.com',
         to: req.body.email,
         subject: '找回密码',
-        text: `您的用户名:${user.username},密码: ${user.pwd}`
+        text: `您的用户名:${user.username},密码: ${user.pwd}`,
       }
 
       // step 3
@@ -87,12 +87,12 @@ app.post('/retrievePwd', (req, res) => {
         if (err) {
           res.status(400).json({
             state: 'failed',
-            msg: err
+            msg: err,
           })
         } else {
           res.status(200).json({
             state: 'suc',
-            msg: `密码已发送至您的邮箱${req.body.email}`
+            msg: `密码已发送至您的邮箱${req.body.email}`,
           })
         }
       })
