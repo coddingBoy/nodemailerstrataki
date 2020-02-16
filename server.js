@@ -23,9 +23,9 @@ mongoose
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err))
 
-app.get('/', (req, res) => {
-  res.json({ state: 'suc', msg: 'it works' })
-})
+// app.get('/', (req, res) => {
+//   res.json({ state: 'suc', msg: 'it works' })
+// })
 
 app.post('/addUser', (req, res) => {
   // console.log(req.body)
